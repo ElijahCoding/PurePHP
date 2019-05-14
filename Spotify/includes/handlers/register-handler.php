@@ -18,6 +18,10 @@ function sanitizeFormString($inputText) {
 	return $inputText;
 }
 
+function validateUsername($un) {
+    
+}
+
 
 if(isset($_POST['registerButton'])) {
 	//Register button was pressed
