@@ -51,10 +51,6 @@ if (isset($_SESSION['userLoggedIn'])) {
 							<a href="profile.php" class="navItemLink">Reece Kenney</a>
 						</div>
 					</div>
-
-
-
-
 				</nav>
 			</div>
 
@@ -82,9 +78,6 @@ if (isset($_SESSION['userLoggedIn'])) {
 							</span>
 
 						</div>
-
-
-
 					</div>
 				</div>
 
