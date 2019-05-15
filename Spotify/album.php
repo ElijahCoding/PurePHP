@@ -7,15 +7,14 @@ if (isset($_GET['id'])) {
     header("Location: index.php");
 }
 
-$albumQuery = mysqli_query(
-    $con,
-    "SELECT * FROM albums where id = '$albumId'"
-);
-
+$albumQuery = mysqli_query($con, "SELECT * FROM albums where id = '$albumId'");
 $album = mysqli_fetch_array($albumQuery);
 
-echo $album['title'];
+$artistId = $album['artist'];
+$artistQuery = mysqli_query($con, "SELECT * FROM artists where id = '$artistId'");
+$artist = mysqli_fetch_array($artistQuery);
 
+echo $artist['name'];
 ?>
 
 <?php include("includes/footer.php"); ?>
