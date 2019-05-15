@@ -1,30 +1,9 @@
-<?php
-include("includes/config.php");
+<?php include("includes/header.php"); ?>
 
-if (isset($_SESSION['userLoggedIn'])) {
-    $userLoggedInt = $_SESSION['userLoggedIn'];
-} else {
-    header('Location: register.php');
-}
-?>
+<h1 class="pageHeadingBig">You Might Also Like</h1>
 
-<html>
-<head>
-	<title>Welcome to Slotify!</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-</head>
+<div class="gridViewContainer">
+    
+</div>
 
-<body>
-
-	<div id="mainContainer">
-
-		<div id="topContainer">
-            <?php include("includes/navBarContainer.php") ?>
-		</div>
-
-		<?php include("includes/nowPlayingBar.php") ?>
-        
-	</div>
-</body>
-
-</html>
+<?php include("includes/footer.php"); ?>
