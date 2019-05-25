@@ -4,8 +4,20 @@ namespace Elijah\Jokes;
 
 class JokeFactory
 {
-    public function hello()
+    protected $jokes = [
+        'Mama joke',
+        'Daddy joke'
+    ];
+
+    public function __construct(array $jokes = null)
     {
-        echo 'hello';
+        if ($jokes) {
+            $this->jokes = $jokes;
+        }
+    }
+
+    public function getRandomJoke()
+    {
+        return $this->jokes[array_rand($this->jokes)];
     }
 }
