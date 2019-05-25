@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94d4bf9ac7f4a933030e46a346ee2917",
+    "content-hash": "d03165cea94e47e7465bc2d3f10202aa",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -270,6 +270,39 @@
                 "validator"
             ],
             "time": "2019-05-16T22:02:54+00:00"
+        },
+        {
+            "name": "elijah/jokes",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../chuck-norris-jokes",
+                "reference": "063abd3480103d8d2c6fac016f6a34f6b044ea6a"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Elijah\\Jokes\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Elijah\\Jokes\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ElijahCoding",
+                    "email": "cuiyeqing960904@gmail.com"
+                }
+            ],
+            "description": "Random jokes"
         },
         {
             "name": "erusev/parsedown",
@@ -4404,7 +4437,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "elijah/jokes": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
