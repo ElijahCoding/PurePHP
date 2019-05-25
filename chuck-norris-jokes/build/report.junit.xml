@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Jokes Test Suite" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.004568">
+    <testsuite name="Elijah\Jokes\Tests\JokeFactoryTest" file="/Users/elijah/Desktop/PHP/chuck-norris-jokes/tests/JokeFactoryTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.004568">
+      <testcase name="it_returns_a_random_joke" class="Elijah\Jokes\Tests\JokeFactoryTest" classname="Elijah.Jokes.Tests.JokeFactoryTest" file="/Users/elijah/Desktop/PHP/chuck-norris-jokes/tests/JokeFactoryTest.php" line="10" assertions="1" time="0.004568"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
