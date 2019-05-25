@@ -24,6 +24,15 @@ class JokeFactoryTest extends TestCase
     /** @test */
     public function it_returns_a_predefined_joke()
     {
-        
+        $randomJokes = [
+            'Mama joke',
+            'Daddy joke'
+        ];
+
+        $jokes = new JokeFactory();
+
+        $joke = $jokes->getRandomJoke();
+
+        $this->assertContains($joke, $randomJokes);
     }
 }
