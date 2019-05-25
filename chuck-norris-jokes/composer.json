@@ -14,5 +14,13 @@
         "psr-4": {
             "Elijah\\Jokes\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Elijah\\Jokes\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1"
     }
 }
