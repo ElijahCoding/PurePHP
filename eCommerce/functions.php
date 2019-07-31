@@ -66,4 +66,16 @@ function categories_to_template($category) {
 **/
 function breadcrumbs($array, $id) {
     if(!$id) return false;
+
+    $count = count($array);
+    $breadcrumbs_array = array();
+
+    for($i = 0; $i < $count; $i++) {
+        if(isset($array[$id])) {
+            $breadcrumbs_array[$array[$id]['id']] = $array[$id]['title'];
+            $id = $array[$id]['parent'];
+        } else break;
+    }
+
+    return array_reverse($breadcrumbs_array, true);
 }
