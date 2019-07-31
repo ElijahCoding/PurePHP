@@ -16,7 +16,7 @@
                 </ul>
             </div>
             <div class="content">
-                content
+                <?php print_arr($categories); ?>
             </div>
         </div>
 

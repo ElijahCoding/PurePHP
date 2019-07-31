@@ -60,3 +60,10 @@ function categories_to_template($category) {
 	include 'category_template.php';
 	return ob_get_clean();
 }
+
+/**
+* Хлебные крошки
+**/
+function breadcrumbs($array, $id) {
+    if(!$id) return false;
+}
