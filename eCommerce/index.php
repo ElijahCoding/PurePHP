@@ -5,6 +5,7 @@ include 'functions.php';
 
 $categories = get_cat();
 $categories_tree = map_tree($categories);
+$categories_menu = categories_to_string($categories_tree);
 
 ?>
 
@@ -20,15 +21,22 @@ $categories_tree = map_tree($categories);
         <a href="/">Главная</a>
         <div class="wrapper">
             <div class="sidebar">
-                Sidebar
+                <ul class="category">
+                    <?php echo $categories_menu ?>
+                </ul>
             </div>
             <div class="content">
-                <?php print_arr($categories_tree); ?>
+                content
             </div>
         </div>
 
         <script src="/js/jquery-1.9.0.min.js"></script>
 	    <script src="/js/jquery.accordion.js"></script>
 	    <script src="/js/jquery.cookie.js"></script>
+        <script>
+            $(document).ready(function(){
+    			$(".category").dcAccordion();
+    		});
+	    </script>
     </body>
 </html>
