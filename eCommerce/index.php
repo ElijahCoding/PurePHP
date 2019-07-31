@@ -1,45 +1,47 @@
-<?php include 'catalog.php'; ?>
+<?php
+error_reporting(E_ALL);
+define("CATALOG", TRUE);
+session_start();
+include 'config.php';
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Каталог</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <a href="/">Главная</a>
-        <div class="wrapper">
-            <div class="sidebar">
-                <ul class="category">
-                    <?php echo $categories_menu ?>
-                </ul>
-            </div>
-            <div class="content">
-                <?php echo $breadcrumbs; ?>
-                <br>
-                <hr>
+$routes = array(
+	array('url' => '#^$|^\?#', 'view' => 'category'),
+	array('url' => '#^product/(?P<product_alias>[a-z0-9-]+)#i', 'view' => 'product'),
+	array('url' => '#^category/(?P<category_alias>[a-z0-9-]+)#i', 'view' => 'category'),
+	array('url' => '#^login#i', 'view' => 'login'),
+	array('url' => '#^logout#i', 'view' => 'logout'),
+	array('url' => '#^forgot#i', 'view' => 'forgot'),
+	array('url' => '#^registration#i', 'view' => 'reg'),
+	array('url' => '#^add_comment#i', 'view' => 'add_comment'),
+	array('url' => '#^page/(?P<page_alias>[a-z0-9-]+)#i', 'view' => 'page'),
+	array('url' => '#^search#i', 'view' => 'search')
+);
 
-                <hr>
-                <?php if(!empty($products)): ?>
-                    <?php foreach($products as $product): ?>
-                        <a href="?product=<?=$product['id']?>">
-                            <?=$product['title']?>
-                        </a><br>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p>Здесь товаров нет!</p>
-                <?php endif; ?>
-            </div>
-        </div>
+// http://catalog.loc/site/index.php
+$app_path = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
-        <script src="/js/jquery-1.9.0.min.js"></script>
-	    <script src="/js/jquery.accordion.js"></script>
-	    <script src="/js/jquery.cookie.js"></script>
-        <script>
-            $(document).ready(function(){
-    			$(".category").dcAccordion();
-    		});
-	    </script>
-    </body>
-</html>
+// http://catalog.loc/site/
+$app_path = preg_replace('#[^/]+$#', '', $app_path);
+define("PATH", $app_path);
+
+// http://catalog.loc/site/page/about
+$url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+// page/about
+$url = str_replace(PATH, '', $url);
+
+foreach ($routes as $route) {
+	if( preg_match($route['url'], $url, $match) ){
+		$view = $route['view'];
+		break;
+	}
+}
+
+if( empty($match) ){
+	header("HTTP/1.1 404 Not Found");
+	include 'views/404.php';
+	exit;
+}
+
+extract($match);
+include "controllers/{$view}_controller.php";

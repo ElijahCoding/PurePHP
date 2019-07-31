@@ -1,14 +1,14 @@
-<?php
+<?php defined("CATALOG") or die("Access denied");
 
-define("DBHOST", "127.0.0.1");
+define("DBHOST", "localhost");
 define("DBUSER", "root");
-define("DBPASS", "root");
-define("DB", "ecommerce");
-define("DBPORT", "8889");
-define("PATH", "http://localhost:8000/");
-define("PERPAGE", 5);
+define("DBPASS", "");
+define("DB", "catalog");
+// define("PATH", "http://catalog.loc/");
+// define("VIEW", "views/apple/");
+define("PRODUCTIMG", "userfiles/products/");
+// define("PERPAGE", 6);
 $option_perpage = array(5, 10, 15);
 
-$connection = @mysqli_connect(DBHOST, DBUSER, DBPASS, DB, DBPORT) or die("Нет соединения с БД");
-
+$connection = @mysqli_connect(DBHOST, DBUSER, DBPASS, DB) or die("Нет соединения с БД");
 mysqli_set_charset($connection, "utf8") or die("Не установлена кодировка соединения");
