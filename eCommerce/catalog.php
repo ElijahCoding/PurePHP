@@ -25,4 +25,7 @@ if (isset($_GET['category'])) {
 
     // ID дочерних категорий
     $ids = cats_id($categories, $id);
+    $ids = !$ids ? $id : rtrim($ids);
+
+    $products = get_products($ids);
 }
