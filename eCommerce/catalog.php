@@ -22,4 +22,7 @@ if (isset($_GET['category'])) {
     } else {
         $breadcrumbs = "<a href='/catalog/'>Главная</a> / Каталог";
     }
+
+    // ID дочерних категорий
+    $ids = cats_id($categories, $id);
 }

@@ -17,6 +17,9 @@
             </div>
             <div class="content">
                 <?php echo $breadcrumbs; ?>
+                <br>
+                <hr>
+                <?php var_dump($ids); ?>
                 <hr>
                 <?php print_arr($categories); ?>
             </div>

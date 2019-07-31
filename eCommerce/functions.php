@@ -79,3 +79,20 @@ function breadcrumbs($array, $id) {
 
     return array_reverse($breadcrumbs_array, true);
 }
+
+/**
+* Получение ID дочерних категорий
+**/
+function cats_id($array, $id) {
+	if(!$id) return false;
+
+	$data = '';
+	foreach ($array as $item) {
+		if ($item['parent'] === (string)$id) {
+			$data .= $item['id'] . ",";
+			$data .= cats_id($array, $item['id']);
+		}
+	}
+
+	return $data;
+}
