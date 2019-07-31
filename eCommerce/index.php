@@ -4,6 +4,7 @@ include 'config.php';
 include 'functions.php';
 
 $categories = get_cat();
+$categories_tree = map_tree($categories);
 
 ?>
 
@@ -22,8 +23,12 @@ $categories = get_cat();
                 Sidebar
             </div>
             <div class="content">
-                <?php print_arr($categories); ?>
+                <?php print_arr($categories_tree); ?>
             </div>
         </div>
+
+        <script src="/js/jquery-1.9.0.min.js"></script>
+	    <script src="/js/jquery.accordion.js"></script>
+	    <script src="/js/jquery.cookie.js"></script>
     </body>
 </html>

@@ -18,8 +18,34 @@ function get_cat() {
     $arr_cat = array();
 
     while ($row = mysqli_fetch_assoc($res)) {
-        $arr_cat[] = $row;
+        $arr_cat[$row['id']] = $row;
     }
 
     return $arr_cat;
+}
+
+/**
+* Построение дерева
+**/
+function map_tree($dataset) {
+	$tree = array();
+
+	foreach ($dataset as $id => &$node) {
+		if (!$node['parent']) {
+			$tree[$id] = &$node;
+		} else {
+            $dataset[$node['parent']]['childs'][$id] = &$node;
+		}
+	}
+
+	return $tree;
+}
+
+/**
+* Дерево в строку HTML
+**/
+function categories_to_string($data) {
+    foreach ($data as $item) {
+        // code...
+    }
 }
