@@ -16,7 +16,7 @@
                 </ul>
             </div>
             <div class="content">
-                <?php print_arr($breadcrumbs_array); ?>
+                <?php echo $breadcrumbs; ?>
                 <hr>
                 <?php print_arr($categories); ?>
             </div>
