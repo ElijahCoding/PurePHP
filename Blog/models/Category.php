@@ -8,7 +8,7 @@ class Category
 
     public function read()
     {
-
+        
     }
 
     public function read_single()

@@ -20,7 +20,15 @@ class Post
 
     public function read()
     {
+        $query = "SELECT * FROM {$this->table} p
+                  LEFT JOIN categories c
+                  ON p.category_id = c.id
+                  ORDER BY p.created_at DESC";
 
+        $statement = $this->conn->prepare($query);
+        $statement->execute();
+
+        return $statement;
     }
 
     public function read_single()
@@ -40,6 +48,6 @@ class Post
 
     public function delete()
     {
-        
+
     }
 }
