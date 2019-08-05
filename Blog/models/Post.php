@@ -62,7 +62,8 @@ class Post
             SET
                 title = :title,
                 body = :body,
-                author = :author, category_id = :category_id
+                author = :author,
+                category_id = :category_id
         ';
 
         $statement = $this->conn->prepare($query);
@@ -92,11 +93,57 @@ class Post
 
     public function update()
     {
+        $query = 'UPDATE ' .
+            $this->table . '
+        SET
+            title = :title,
+            body = :body,
+            author = :author,
+            category_id = :category_id
+        ';
 
+        $statement = $this->conn->prepare($query);
+
+        // Clean data
+        $this->title = htmlspecialchars(strip_tags($this->title));
+        $this->body = htmlspecialchars(strip_tags($this->body));
+        $this->author = htmlspecialchars(strip_tags($this->author));
+        $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+        $statement->bindParam(':title', $this->title);
+        $statement->bindParam(':body', $this->body);
+        $statement->bindParam(':author', $this->author);
+        $statement->bindParam(':category_id', $this->category_id);
+        $statement->bindParam(':id', $this->id);
+
+        if($stmt->execute()) {
+            return true;
+        }
+
+        printf("Error: %s.\n", $stmt->error);
+        return false;
     }
 
     public function delete()
     {
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+
+        $statement = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+        $statement->bindParam(':id', $this->id);
+
+        // Execute query
+          if($stmt->execute()) {
+              return true;
+          }
+
+          // Print error if something goes wrong
+          printf("Error: %s.\n", $stmt->error);
+          
+          return false;
 
     }
 }
