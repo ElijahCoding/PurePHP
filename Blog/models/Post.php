@@ -34,7 +34,26 @@ class Post
 
     public function read_single()
     {
+        $query = "SELECT *
+                  FROM {$this->table} p
+                  LEFT JOIN categories c
+                  ON p.category_id = c.id
+                  WHERE p.id = ?
+                  LIMIT 0,1";
 
+        $statement = $this->conn->prepare($query);
+
+        $statement->bindParam(1, $this->id);
+
+        $statement->execute();
+
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+
+        $this->title = $row['title'];
+        $this->body = $row['body'];
+        $this->author = $row['author'];
+        $this->category_id = $row['category_id'];
+        $this->category_name = $row['name'];
     }
 
     public function create()
