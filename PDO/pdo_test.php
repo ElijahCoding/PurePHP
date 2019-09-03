@@ -11,7 +11,7 @@ try {
     <head>
         <meta charset="utf-8">
         <title></title>
-        <link rel="stylesheet" href="../styles/styles.css">
+        <link rel="stylesheet" href="./styles/styles.css">
     </head>
     <body>
         <h1>Connecting with PDO</h1>

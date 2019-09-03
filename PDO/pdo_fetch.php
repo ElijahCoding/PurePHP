@@ -2,21 +2,22 @@
 try {
     require_once './includes/pdo_connect.php';
 
-    $sql = "SELECT name, meaning, gender FROM names ORDER BY name";
+    $sql = 'SELECT name, meaning, gender FROM names
+            ORDER BY name';
 
-} catch (\Exception $e) {
-    $error = $e->getMessage();
+    $result = $db->query($sql);
+} catch (Exception $e) {
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>PDO: SELECT Loop</title>
+    <title>PDO: Fetching a Row</title>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-<h1>PDO: Looping Directly over a SELECT Query</h1>
+<h1>PDO: Fetching the Next Row</h1>
 <?php if (isset($error)) {
     echo "<p>$error</p>";
 }
@@ -27,7 +28,7 @@ try {
         <th>Meaning</th>
         <th>Gender</th>
     </tr>
-    <?php foreach ($db->query($sql) as $row) { ?>
+    <?php while ($row = $result->fetch()) { ?>
         <tr>
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['meaning']; ?></td>
