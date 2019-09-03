@@ -4,7 +4,6 @@ try {
     $sql = 'SELECT name, meaning, gender FROM names
             ORDER BY name';
     $result = $db->query($sql);
-    
 } catch (Exception $e) {
     $error = $e->getMessage();
 }
@@ -26,7 +25,7 @@ try {
     <tr>
         <th>Column</th>
     </tr>
-    <?php while($col = $result->fetchColumn()) { ?>
+    <?php while($col = $result->fetchColumn(1)) { ?>
     <tr>
         <td><?php echo $col; ?></td>
     </tr>
