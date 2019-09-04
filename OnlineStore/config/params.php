@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'admin_email' => 'elijah@gmail.com',
+    'admin_email' => 'matroskin978@gmail.com',
     'shop_name' => 'Магазин ishop2.loc',
     'pagination' => 3,
     'smtp_host' => 'smtp.ukr.net',
@@ -9,4 +9,8 @@ return [
     'smtp_protocol' => 'ssl',
     'smtp_login' => 'testishop2@ukr.net',
     'smtp_password' => 'testishop_2',
+    'img_width' => 125,
+    'img_height' => 200,
+    'gallery_width' => 700,
+    'gallery_height' => 1000,
 ];

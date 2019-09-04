@@ -4,8 +4,12 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28
+class ComposerStaticInit0dabf51485c17910d99e5a88c66a2ed6
 {
+    public static $files = array (
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'i' => 
         array (
@@ -14,6 +18,10 @@ class ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28
         'a' => 
         array (
             'app\\' => 4,
+        ),
+        'R' => 
+        array (
+            'RedBeanPHP\\' => 11,
         ),
     );
 
@@ -26,18 +34,28 @@ class ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'RedBeanPHP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP',
+        ),
     );
 
-    public static $classMap = array (
-        'ishop\\core\\App' => __DIR__ . '/..' . '/ishop/core/App.php',
+    public static $prefixesPsr0 = array (
+        'V' => 
+        array (
+            'Valitron' => 
+            array (
+                0 => __DIR__ . '/..' . '/vlucas/valitron/src',
+            ),
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit0dabf51485c17910d99e5a88c66a2ed6::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit0dabf51485c17910d99e5a88c66a2ed6::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit0dabf51485c17910d99e5a88c66a2ed6::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
