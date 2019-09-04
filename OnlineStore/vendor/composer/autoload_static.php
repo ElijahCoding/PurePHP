@@ -20,7 +20,7 @@ class ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28
     public static $prefixDirsPsr4 = array (
         'ishop\\' => 
         array (
-            0 => __DIR__ . '/..' . '/ishop',
+            0 => __DIR__ . '/..' . '/ishop/core',
         ),
         'app\\' => 
         array (
@@ -28,11 +28,16 @@ class ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28
         ),
     );
 
+    public static $classMap = array (
+        'ishop\\core\\App' => __DIR__ . '/..' . '/ishop/core/App.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite9b5bcb4952a9deb4c0e8e8d4d3b9b28::$classMap;
 
         }, null, ClassLoader::class);
     }
